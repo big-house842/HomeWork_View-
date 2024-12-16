@@ -1,13 +1,13 @@
 package Models;
 
-import Libs.Input; 
+import javax.swing.JOptionPane;
 
 public class Ghost {
 
     private String nameGhost;
     private int id, strength, size;
-    
-    public void ReadGhost(String a, int s1, int s2){
+
+    public void ReadGhost(String a, int s1, int s2) {
 
         this.nameGhost = a;
         this.strength = s1;
@@ -15,7 +15,7 @@ public class Ghost {
 
     }
 
-    public void ReadGhostWithID(int i, String a, int s1, int s2){
+    public void ReadGhostWithID(int i, String a, int s1, int s2) {
 
         this.id = i;
         this.nameGhost = a;
@@ -24,59 +24,55 @@ public class Ghost {
 
     }
 
-    public void ReadGhostUser(){
-        System.out.println("------------------------------------------------");
-        System.out.println("             ....::: Ghost :::....              ");
-        System.out.println("------------------------------------------------");
+    public void ReadGhostUser() {
 
-        System.out.print("      Name: ");
-        this.nameGhost = Input.LerString();
-        System.out.print("      Strength: ");
-        this.strength = Input.LerNumero();
-        System.out.print("      Size: ");
-        this.size = Input.LerNumero();
-        System.out.println("------------------------------------------------");
-        System.out.println();
+        this.nameGhost = JOptionPane.showInputDialog(null, "Name: ", " Data Ghost ", JOptionPane.QUESTION_MESSAGE);
+        this.strength = Integer.parseInt(JOptionPane.showInputDialog(null, "Strength: ", " Data Ghost ", JOptionPane.QUESTION_MESSAGE));
+        this.size = Integer.parseInt(JOptionPane.showInputDialog(null, "Size: ", " Data Ghost ", JOptionPane.QUESTION_MESSAGE));
+
     }
 
-    public String ReadName(String a){
+    public String ReadName(String a) {
         return this.nameGhost = a;
     }
 
-    public int ReadStrengh(int s1){
+    public int ReadStrengh(int s1) {
         return this.strength = s1;
     }
 
-    public int ReadSize(int s2){
+    public int ReadSize(int s2) {
         return this.size = s2;
     }
 
-
-    public String ReturnNameGhost(){
+    public String ReturnNameGhost() {
         return this.nameGhost;
     }
 
-    public int ReturnStrength(){
+    public int ReturnStrength() {
         return this.strength;
     }
 
-    public int ReturnSize(){
+    public int ReturnSize() {
         return this.size;
     }
 
-    public void PrintGhost(){
+    public void PrintGhost() {
 
-        System.out.print("   Name _ " + this.nameGhost + "   Strengh _ " + this.strength + "   Size _ " + this.size);
-        System.out.println();
+        String message = "   Name _ " + this.nameGhost + "   Strengh _ " + this.strength + "   Size _ " + this.size;
+
+        JOptionPane.showMessageDialog(null, message);
 
     }
 
-    public void PrintGhostWithID(){
+    public void PrintGhostWithID() {
 
-        System.out.println("------------------------------------------------");
-        System.out.print( " |  Id _ " + this.id + "\n" + " |  Name _ " + this.nameGhost + "\n" + " |  Strengh _ " + this.strength + "\n" + " |  Size _ " + this.size + "\n");
-        System.out.println("------------------------------------------------");
-        System.out.println();
+        String message =
+                "------------------------------------------------\n" +
+                " |  Id _ " + this.id + "\n" + " |  Name _ " + this.nameGhost + "\n" + " |  Strengh _ " + this.strength + "\n" + " |  Size _ " + this.size + "\n" +
+                "------------------------------------------------";
+
+        JOptionPane.showMessageDialog(null, message);
+
 
     }
 
