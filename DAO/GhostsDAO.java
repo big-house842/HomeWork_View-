@@ -36,7 +36,8 @@ public class GhostsDAO {
     public void InsertGhostBD(Ghost phantoms) {
         String sql = "Insert Into Ghost (nameGhost, strength, size) values(?,?,?)";
 
-        try (Connection conect = new Conexao().Conectar()) {
+        try {
+            Connection conect = new Conexao().Conectar();
 
             PreparedStatement stmt = conect.prepareStatement(sql);
 

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import DAO.GhostsDAO;
-import Libs.Input;
 import Models.*;
 
 public class Principal {
@@ -88,14 +87,17 @@ public class Principal {
 
         ArrayList<Ghost> listPhantom = new ArrayList<>();
 
-        System.out.println("Write the atribute of the Ghost that you want to order the DB: ");
-        System.out.print("      Atribute: ");
-        String column = Input.LerString();
+        String message = "Write the atribute of the Ghost that you want to order the DB: ";
+        JOptionPane.showMessageDialog(null, message);
+
+        String column = JOptionPane.showInputDialog("Atributte: ");
 
         GhostsDAO.OrderDB(column, listPhantom);
 
-        System.out.println("------------------------------------------------");
-        System.out.println("            The organized attributes            ");
+        String message2 = "------------------------------------------------" +
+                    "            The organized attributes            " +
+                    "------------------------------------------------";
+        JOptionPane.showMessageDialog(null, message2);
 
         for (Ghost ph : listPhantom) {
             ph.PrintGhostWithID();
@@ -105,11 +107,12 @@ public class Principal {
 
     private static void deleteGhostDB() {
 
-        System.out.println("Write the atribute and the value of it to delete the Ghost that you want: ");
-        System.out.print("      Atribute: ");
-        String column = Input.LerString();
-        System.out.print("      Value: ");
-        int value = Input.LerNumero();
+        String message = "Write the atribute and the value of it to delete the Ghost that you want: ";
+        JOptionPane.showMessageDialog(null, message);
+        
+        String column = JOptionPane.showInputDialog("Atributte: ");
+
+        int value = Integer.parseInt(JOptionPane.showInputDialog("Value: "));
 
         GhostsDAO.DeleteDB(column, value);
 
@@ -117,11 +120,12 @@ public class Principal {
 
     private static void SearchDB() {
 
-        System.out.println("Write the atribute and the value of it to search the Ghost that you want: ");
-        System.out.print("      Atribute: ");
-        String column = Input.LerString();
-        System.out.print("      Value: ");
-        int value = Input.LerNumero();
+        String message = "Write the atribute and the value of it to search the Ghost that you want: ";
+        JOptionPane.showMessageDialog(null, message);
+
+        String column = JOptionPane.showInputDialog("Atributte: ");
+
+        int value = Integer.parseInt(JOptionPane.showInputDialog("Value: "));
 
         Ghost phantom = GhostsDAO.SearchBD(column, value);
 
@@ -147,15 +151,18 @@ public class Principal {
 
         Ghost phantom = new Ghost();
 
-        System.out.println("How many Ghost do you want to insert? ");
+        String message = "How many Ghost do you want to insert? ";
+        JOptionPane.showMessageDialog(null, message);
 
-        int x = Input.LerNumero();
-        System.out.println();
+        int x = Integer.parseInt(JOptionPane.showInputDialog("How many? "));
 
         if (x == 1) {
-            System.out.println("Write the name of the Ghost, the Strenght, and the size ");
+            String message2 ="Write the name of the Ghost, the Strenght, and the size ";
+            JOptionPane.showMessageDialog(null, message2);
+
         } else {
-            System.out.println("Write the name of the Ghosts, the Strenghts, and the sizes of the them: ");
+            String message3 = "Write the name of the Ghosts, the Strenghts, and the sizes of the them: ";
+            JOptionPane.showMessageDialog(null, message3);
         }
 
         for (int i = 0; i < x; i++) {

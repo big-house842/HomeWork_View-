@@ -1,4 +1,4 @@
-package Libs;
+package lib;
 
 import java.util.Random;
 import java.util.Scanner;// atributo favorito
